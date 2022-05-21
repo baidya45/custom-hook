@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from "react";
+import useDoctitle from "./components/useDoctitle";
 
 function App() {
+  const[counter,setCounter] = useState(0);
+  useDoctitle(counter);
+
+  function update1(){
+    setCounter(counter+1)
+    console.log(counter);
+  }
+  function update2(){
+    setCounter(counter-1)
+    console.log(counter);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Update The Document Title {counter}</h1>
+      <button onClick={update1}>Click +</button>
+      <button onClick={update2}>Click -</button>
     </div>
   );
 }
